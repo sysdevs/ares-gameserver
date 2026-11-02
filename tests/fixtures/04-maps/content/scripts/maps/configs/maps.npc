@@ -1,0 +1,4 @@
+[maps_hidden_npc]
+name=Ghost
+model1=man_head_bald
+minimap=no

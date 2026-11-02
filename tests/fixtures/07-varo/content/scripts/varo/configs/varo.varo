@@ -1,0 +1,5 @@
+[test_charges]
+type=int
+
+[test_owner]
+type=player_uid

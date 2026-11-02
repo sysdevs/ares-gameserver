@@ -1,0 +1,9 @@
+[test_ring]
+name=Ring
+model=inv_boots
+iop1=Rub
+
+[test_coins]
+name=Test coins
+model=inv_boots
+stackable=yes

@@ -1,0 +1,5 @@
+[proc,a_area_proc]
+mes("a_area");
+
+[label,a_area_label]
+mes("l");

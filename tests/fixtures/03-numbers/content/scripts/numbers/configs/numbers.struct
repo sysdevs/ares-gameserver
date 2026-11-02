@@ -1,0 +1,4 @@
+[numbers_struct]
+param=numbers_coord,1_49_51_63_0
+param=numbers_big,2147483648
+param=numbers_str,has spaces 

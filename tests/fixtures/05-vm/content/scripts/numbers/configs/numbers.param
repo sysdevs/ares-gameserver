@@ -1,0 +1,11 @@
+[numbers_coord]
+type=coord
+default=0_50_50_10_5
+
+[numbers_big]
+type=int
+default=0xFFFFFFFF
+
+[numbers_str]
+type=string
+default=null

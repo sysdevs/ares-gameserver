@@ -1,0 +1,26 @@
+{
+  "golden": "06-npcs",
+  "src": "tests/fixtures/06-npcs/content",
+  "ticks": 60,
+  "seed": 99,
+  "accounts": [{ "username": "walker", "x": 3222, "z": 3222, "level": 0 }],
+  "clients": [{ "remote": "192.168.1.20", "username": "walker", "password": "pw", "connect": 0, "seeds": [100, 200, 300, 400], "uid": 77 }],
+  "packets": [
+    { "tick": 5, "client": 0, "opcode": 207, "payload": "000c990c960101ff01" },
+    { "tick": 8, "client": 0, "opcode": 224, "cheat": "give fixture_coins 50" },
+    { "tick": 9, "client": 0, "opcode": 224, "cheat": "getcoord" },
+    { "tick": 10, "client": 0, "opcode": 253, "chat": "hello world", "colour": 2, "effect": 1 },
+    { "tick": 12, "client": 0, "opcode": 120, "payload": "" },
+    { "tick": 14, "client": 0, "opcode": 224, "cheat": "setvar player_perm_c 1234" },
+    { "tick": 15, "client": 0, "opcode": 224, "cheat": "tele 0,50,50,30,31" },
+    { "tick": 18, "client": 0, "opcode": 9, "payload": "0001" },
+    { "tick": 20, "client": 0, "opcode": 236, "payload": "0002" },
+    { "tick": 30, "client": 0, "opcode": 224, "cheat": "npcadd npcs_prey" },
+    { "tick": 31, "client": 0, "opcode": 224, "cheat": "locadd fixture_door" },
+    { "tick": 32, "client": 0, "opcode": 224, "cheat": "setstat attack 40" },
+    { "tick": 33, "client": 0, "opcode": 224, "cheat": "advancestat magic 20" },
+    { "tick": 34, "client": 0, "opcode": 224, "cheat": "givecrap" },
+    { "tick": 40, "client": 0, "opcode": 207, "payload": "010c9e0c9f02020202" },
+    { "tick": 45, "client": 0, "opcode": 51, "payload": "" }
+  ]
+}

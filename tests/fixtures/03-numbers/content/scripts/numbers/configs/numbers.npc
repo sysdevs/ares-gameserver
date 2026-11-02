@@ -1,0 +1,12 @@
+[numbers_npc]
+name=Spaced 
+model1=woman_head_mediumhair
+model3=man_head_bald
+head2=chat_male_head_bald
+recol1s=5
+recol1d=200
+recol3s=7
+recol3d=8
+vislevel=12
+patrol1=0_50_50_1_2,3
+patrol2=1_50_50_63_63

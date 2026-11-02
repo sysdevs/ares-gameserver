@@ -1,0 +1,155 @@
+[ai_opnpc1,npcs_hunter]
+npc_say("Gotcha <tostring(.npc_stat(hitpoints))>");
+npc_anim(fixture_ready, 0);
+.npc_say("Eek");
+.npc_damage(fixture_hit, 2);
+npc_setmode(none);
+npc_sethuntmode(npcs_hunt_prey);
+
+[ai_apnpc1,npcs_follower]
+npc_say("Near <tostring(npc_range(.npc_coord))>");
+npc_facesquare(.npc_coord);
+npc_setmode(wander);
+
+[ai_opobj1,npcs_looter]
+npc_say("Shiny");
+npc_setmode(none);
+npc_sethuntmode(npcs_hunt_obj);
+
+[ai_queue3,npcs_locker]
+%fixture_varn = add(%fixture_varn, 1);
+def_int $p = modulo(%fixture_varn, 3);
+if ($p = 0) {
+    if (loc_find(0_50_50_12_12, fixture_fountain) = true) {
+        loc_anim(fixture_ready);
+        loc_change(fixture_door, 3);
+    }
+} else if ($p = 1) {
+    loc_add(0_50_50_14_12, fixture_fountain, 1, centrepiece_straight, 5);
+    npc_say("<loc_name> <tostring(loc_angle)>");
+} else if (loc_find(0_50_50_14_12, fixture_fountain) = true) {
+    loc_del(2);
+}
+loc_findallzone(0_50_50_12_12);
+while (loc_findnext = true) {
+    npc_say("loc <tostring(loc_angle)> <tostring(coordx(loc_coord))>");
+}
+
+[ai_timer,npcs_spawner]
+def_int $phase = modulo(map_clock, 20);
+if ($phase < 5) {
+    npc_queue(2, $phase, 2);
+    npc_add(movecoord(npc_coord, 2, 0, 1), npcs_temp, 6);
+} else if ($phase < 10) {
+    npc_findallany(npc_coord, 10, 0);
+    while (.npc_findnext = true) {
+        .npc_say("<.npc_name> <tostring(.npc_stat(hitpoints))>");
+        .npc_statsub(hitpoints, 1, 10);
+    }
+}
+
+[ai_queue5,npcs_tester]
+npc_say("q5");
+
+[ai_queue2,npcs_spawner]
+npc_say("queued");
+
+[ai_spawn,npcs_temp]
+npc_say("Hi");
+npc_walktrigger(4, 9);
+npc_walk(movecoord(npc_coord, 2, 0, 0));
+
+[ai_queue4,npcs_temp]
+npc_say("walked");
+npc_delay(2);
+npc_say("woke");
+
+[ai_despawn,npcs_temp]
+spotanim_map(fixture_glow, npc_coord, 0, 0);
+
+[ai_timer,npcs_changer]
+def_int $p = modulo(map_clock, 30);
+if ($p < 3) {
+    npc_changetype(npcs_prey, 4);
+} else if ($p < 6) {
+    npc_walk(map_findsquare(npc_coord, 1, 3, 2));
+} else if ($p < 9) {
+    npc_changetype_keepall(npcs_rock, 3);
+} else if ($p < 12) {
+    npc_del;
+} else if ($p < 18) {
+    npc_walk(map_findsquare(npc_coord, 0, 2, 0));
+    npc_arrivedelay;
+    npc_say("arrived");
+} else {
+    npc_walk(map_findsquare(npc_coord, 2, 4, 1));
+}
+
+[ai_timer,npcs_tester]
+%fixture_varn = add(%fixture_varn, 1);
+def_int $p = modulo(%fixture_varn, 8);
+if ($p = 0) {
+    npc_queue(5, 7, 3);
+    npc_findallany(npc_coord, 12, 0);
+    npc_delay(0);
+    if (.npc_findnext = true) {
+        npc_say("stale");
+    }
+} else if ($p = 1) {
+    world_delay(2);
+    npc_say("world <tostring(map_clock)>");
+} else if ($p = 2) {
+    if (npc_hasop(2) = false) {
+        npc_say("noop");
+    }
+} else if ($p = 3) {
+    if (.npc_find(npc_coord, npcs_prey, 15, 1) = true) {
+        .npc_tele(movecoord(.npc_coord, 1, 0, 1));
+    }
+    if (.npc_hunt(npc_coord, 15, 0) = true) {
+        npc_say(.npc_name);
+    }
+    if (.npc_findcat(npc_coord, npcs_prey_cat, 15, 2) = true) {
+        .npc_queue(2, 5, 1);
+    }
+    if (.npc_find(npc_coord, npcs_statue, 15, 0) = true) {
+        .npc_say("statue");
+    }
+} else if ($p = 4) {
+    npc_huntall(npc_coord, 15, 0);
+    while (.npc_findnext = true) {
+        .npc_anim(fixture_walk, 1);
+        projanim_npc(npc_coord, .npc_uid, fixture_glow, 10, 20, 0, 30, 16, 64);
+    }
+    npc_findallzone(npc_coord);
+    while (.npc_findnext = true) {
+        .npc_statheal(hitpoints, 1, 0);
+    }
+    if (.npc_findexact(0_50_50_20_20, fixture_npc) = true) {
+        .npc_say("exact");
+    }
+} else if ($p = 5) {
+    npc_findall(npc_coord, npcs_temp, 15, 0);
+    while (.npc_findnext = true) {
+        .npc_statadd(attack, 2, 50);
+        .npc_say("<tostring(.npc_stat(attack))> <tostring(.npc_basestat(attack))>");
+    }
+    spotanim_map(fixture_glow, movecoord(npc_coord, 1, 0, 1), 10, 5);
+    projanim_map(npc_coord, movecoord(npc_coord, 3, 0, 3), fixture_glow, 10, 20, 0, 30, 16, 64);
+    spotanim_npc(fixture_glow, 5, 1);
+} else if ($p = 6) {
+    npc_say("<tostring(npc_param(fixture_level))> <tostring(npc_attackrange)> <tostring(distance(npc_coord, 0_50_50_20_20))> <tostring(seqlength(fixture_walk))> <tostring(coordz(npc_coord))>");
+    if (map_blocked(npc_coord) = false & lineofsight(npc_coord, 0_50_50_20_20) = true) {
+        npc_say("clear");
+    }
+    if (inzone(0_50_50_0_0, 0_50_50_63_63, npc_coord) = true & lineofwalk(npc_coord, 0_50_50_35_33) = true) {
+        npc_say("inside");
+    }
+    npc_setmode(opplayer1);
+    npc_settimer(3);
+} else {
+    npc_setmode(applayer2);
+    npc_settimer(2);
+    npc_damage(fixture_hit, 3);
+    npc_say("<tostring(npc_stat(hitpoints))> <tostring(npc_findhero)>");
+}

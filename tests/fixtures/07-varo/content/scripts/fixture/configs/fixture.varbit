@@ -1,0 +1,4 @@
+[fixture_bit]
+basevar=fixture_varp
+startbit=0
+endbit=3

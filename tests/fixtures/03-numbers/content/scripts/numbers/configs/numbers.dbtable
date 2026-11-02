@@ -1,0 +1,5 @@
+[numbers_table]
+column=label,string,int
+column=pair,int,int,LIST,REQUIRED,INDEXED
+column=key,string,int,REQUIRED,INDEXED
+default=label,"a, quoted",7

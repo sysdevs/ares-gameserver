@@ -1,0 +1,48 @@
+[login,_]
+mes("Welcome to the fixture.");
+last_login_info;
+if_settab(fixture_if, 0);
+if_settext(fixture_if:com_0, "Hello\\n@red@World\\nNext line");
+if_setcolour(fixture_if:com_0, 0xff8000);
+inv_add(inv, fixture_boots, 1);
+inv_add(inv, fixture_coins, 1000);
+inv_add(player_bank, fixture_coins, 5);
+inv_transmit(inv, fixture_if:com_0);
+inv_add(worn, fixture_boots, 1);
+buildappearance(worn);
+setidkit(fixture_head, 3);
+stat_advance(attack, 5000);
+stat_boost(strength, 2, 10);
+stat_boost(strength, 2, 10);
+%player_perm_a = 5;
+%player_perm_c = 300;
+%fixture_bit = 6;
+settimer(fixture_timer, 5);
+queue(fixture_queue, 3, 7);
+weakqueue(fixture_weak, 1, 2);
+obj_add(movecoord(coord, 1, 0, 0), fixture_coins, 50, 100);
+obj_add(movecoord(coord, 0, 0, 1), fixture_boots, 2, 100);
+say("hi");
+anim(fixture_ready, 0);
+spotanim_pl(fixture_glow, 50, 0);
+mes("<tostring(inv_total(inv, fixture_coins))> <tostring(inv_freespace(inv))> <tostring(stat(attack))> <tostring(stat_base(strength))> <tostring(%fixture_bit)>");
+
+[timer,fixture_timer]
+mes("tick <tostring(map_clock)> <tostring(gettimer(fixture_timer))>");
+stat_sub(attack, 1, 0);
+if (stat(attack) < 3) {
+    cleartimer(fixture_timer);
+}
+
+[queue,fixture_queue](int $arg)
+mes("queued <tostring($arg)> <tostring(getqueue(fixture_queue))>");
+inv_del(inv, fixture_coins, 100);
+p_delay(2);
+mes("after delay <tostring(inv_total(inv, fixture_coins))>");
+if_settab(null, 0);
+
+[queue,fixture_weak](int $arg)
+mes("weak <tostring($arg)>");
+
+[logout,_]
+mes("Goodbye.");

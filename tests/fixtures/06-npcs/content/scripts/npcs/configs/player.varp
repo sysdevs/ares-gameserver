@@ -1,0 +1,12 @@
+[player_perm_a]
+scope=perm
+
+[player_temp_b]
+
+[player_perm_c]
+scope=perm
+transmit=yes
+
+[player_perm_coord]
+scope=perm
+type=coord

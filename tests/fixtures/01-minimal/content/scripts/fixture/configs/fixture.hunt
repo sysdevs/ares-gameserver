@@ -1,0 +1,10 @@
+[fixture_hunt]
+type=player
+check_vis=lineofsight
+check_nottoostrong=off
+check_notcombat=%fixture_varp
+check_notcombat_self=%fixture_varn
+check_notbusy=off
+check_afk=off
+find_keephunting=on
+find_newmode=applayer2

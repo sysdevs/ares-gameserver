@@ -1,0 +1,8 @@
+{
+  "golden": "06-npcs",
+  "src": "tests/fixtures/06-npcs/content",
+  "ticks": 130,
+  "seed": 42,
+  "accounts": [{ "username": "tester", "x": 3222, "z": 3222, "level": 0 }],
+  "clients": [{ "remote": "127.0.0.1", "username": "tester", "password": "test", "connect": 1, "seeds": [11, 22, 33, 44], "uid": 123 }]
+}

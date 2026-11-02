@@ -1,0 +1,42 @@
+[package]
+name = "ares-gameserver"
+version = "0.1.0"
+edition = "2024"
+default-run = "ares"
+
+[dependencies]
+ares-shared = { path = "../ares-shared" }
+axum = { version = "0.8", features = ["ws"], optional = true }
+bcrypt = "0.19"
+bzip2 = { version = "0.6", default-features = false, features = ["bzip2-sys", "static"] }
+crc32fast = "1.5"
+foldhash = "0.2"
+flate2 = { version = "1.1", default-features = false, features = ["zlib"] }
+futures-util = { version = "0.3", default-features = false, features = ["sink"] }
+indexmap = { version = "2.14", features = ["serde"] }
+notify = "8.2"
+num-bigint = "0.5"
+png = "0.18"
+rsa = { version = "0.9", features = ["getrandom", "pem"] }
+ares-compiler = { version = "0.1.0", path = "../ares-compiler" }
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order", "float_roundtrip"] }
+sqlx = { version = "0.9", features = ["runtime-tokio", "sqlite", "mysql", "migrate", "any", "macros"] }
+tokio = { version = "1.53", features = ["fs", "signal", "rt-multi-thread", "net", "sync", "time", "macros", "io-util"] }
+tokio-tungstenite = "0.30"
+tower = { version = "0.5", features = ["util"], optional = true }
+tower-http = { version = "0.7.1", features = ["fs"], optional = true }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[features]
+default = ["web-client"]
+web-client = ["dep:axum", "dep:tower", "dep:tower-http"]
+
+# The test gates spend their time in bcrypt, zlib, bzip2 and bigint: optimise
+# dependencies even in dev so a debug `cargo test` stays usable.
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3

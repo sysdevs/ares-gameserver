@@ -1,0 +1,20 @@
+[fixture_boots]
+name=Boots
+desc=Fixture boots.
+model=inv_boots
+manwear=man_feet_boots,0
+womanwear=woman_feet_boots,0
+iop2=Wear
+cost=500
+wearpos=feet
+weight=12oz
+
+[fixture_coins]
+name=Coins
+model=inv_boots
+stackable=yes
+
+[fixture_quest]
+name=Quest item
+model=inv_boots
+tradeable=no

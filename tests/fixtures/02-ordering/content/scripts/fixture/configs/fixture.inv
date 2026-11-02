@@ -1,0 +1,7 @@
+[fixture_shop]
+scope=shared
+size=5
+restock=yes
+stackall=yes
+allstock=no
+stock1=fixture_boots,2,500

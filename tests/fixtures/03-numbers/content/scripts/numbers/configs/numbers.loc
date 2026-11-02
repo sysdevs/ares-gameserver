@@ -1,0 +1,9 @@
+[numbers_loc]
+model=outdoorfurniture_bench
+recol2s=31
+recol2d=0x7FFF
+forceapproach=east
+active=no
+
+[numbers_loc_noname]
+model=outdoorfurniture_fountain

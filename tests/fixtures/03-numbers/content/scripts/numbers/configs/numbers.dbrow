@@ -1,0 +1,12 @@
+[numbers_row]
+table=numbers_table
+data=pair,1,2
+data=pair,3,0x4
+data=label,"x,y",-9
+data=key,k1,7
+
+[numbers_row2]
+table=numbers_table
+data=pair,3,1
+data=label,"x,y",3
+data=key,7,1

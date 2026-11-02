@@ -1,0 +1,673 @@
+[
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "world_startup",
+   "nodeId": 10,
+   "nodeTime": 1700000000000,
+   "profile": "main"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 10,
+   "nodeTime": 1700000000000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-alice-0",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "alice",
+   "password": "Secret",
+   "reconnecting": false,
+   "hasSave": false,
+   "replyTo": "r1"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 10,
+   "nodeTime": 1700000001000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-bob-1",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "bob",
+   "password": "b",
+   "reconnecting": false,
+   "hasSave": false,
+   "replyTo": "r2"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 10,
+   "nodeTime": 1700000002000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-carol-2",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "carol",
+   "password": "c",
+   "reconnecting": false,
+   "hasSave": false,
+   "replyTo": "r3"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 10,
+   "nodeTime": 1700000003000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-alice-3",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "alice",
+   "password": "secret",
+   "reconnecting": false,
+   "hasSave": false,
+   "replyTo": "r4"
+  }
+ },
+ {
+  "conn": "w11",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 11,
+   "nodeTime": 1700000004000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-alice-4",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "alice",
+   "password": "secret",
+   "reconnecting": true,
+   "hasSave": false,
+   "replyTo": "r5"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 10,
+   "nodeTime": 1700000005000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-alice-5",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "alice",
+   "password": "secret",
+   "reconnecting": true,
+   "hasSave": true,
+   "replyTo": "r6"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_logout",
+   "nodeId": 10,
+   "nodeTime": 1700000006000,
+   "profile": "main",
+   "username": "alice",
+   "save": "IAQABwyWDJYAAAoSGiEkKgAAAAAAACcQAAAAAAAAAAABAAAAAAEAAAAAAQAALRQKAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQABAASP////fwACAAAAAAAAAAAAAAAAAAAAAAAAAFf6mHQ=",
+   "replyTo": "r7"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 10,
+   "nodeTime": 1700000007000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-alice-7",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "alice",
+   "password": "wrong",
+   "reconnecting": false,
+   "hasSave": false,
+   "replyTo": "r8"
+  }
+ },
+ {
+  "conn": "w11",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 11,
+   "nodeTime": 1700000008000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-alice-8",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "alice",
+   "password": "secret",
+   "reconnecting": false,
+   "hasSave": false,
+   "replyTo": "r9"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 10,
+   "nodeTime": 1700000009000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-alice-9",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "alice",
+   "password": "secret",
+   "reconnecting": false,
+   "hasSave": false,
+   "replyTo": "r10"
+  }
+ },
+ {
+  "conn": "w11",
+  "msg": {
+   "type": "player_autosave",
+   "nodeId": 11,
+   "nodeTime": 1700000010000,
+   "profile": "main",
+   "username": "alice",
+   "save": "IAQABwyYDJYAAAoSGiEkKgAAAAAAACcQAAAAAAAAAAABAAAAAAEAAAAAAQAALRQKAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQABAASP////fwACAAAAAAAAAAAAAAAAAAAAAAAAAGNRXpE="
+  }
+ },
+ {
+  "conn": "w11",
+  "msg": {
+   "type": "player_autosave",
+   "nodeId": 11,
+   "nodeTime": 1700000010000,
+   "profile": "main",
+   "username": "alice",
+   "save": "AAAA"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_logout",
+   "nodeId": 10,
+   "nodeTime": 1700000010000,
+   "profile": "main",
+   "username": "alice",
+   "save": "IAQABwyWDJYAAAoSGiEkKgAAAAAAACcQAAAAAAAAAAABAAAAAAEAAAAAAQAALRQKAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAAAQABAASP////fwACAAAAAAAAAAAAAAAAAAAAAAAAAFf6mHQ=",
+   "replyTo": "r11"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_mute",
+   "nodeId": 10,
+   "nodeTime": 1700000011000,
+   "profile": "main",
+   "staff": "mod",
+   "username": "alice",
+   "until": 1800000000000
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_ban",
+   "nodeId": 10,
+   "nodeTime": 1700000011000,
+   "profile": "main",
+   "staff": "mod",
+   "username": "nobody",
+   "until": 1900000000000
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_ban",
+   "nodeId": 10,
+   "nodeTime": 1700000011000,
+   "profile": "main",
+   "staff": "mod",
+   "username": "bob",
+   "until": 1900000000000
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_force_logout",
+   "nodeId": 10,
+   "nodeTime": 1700000011000,
+   "profile": "main",
+   "username": "bob"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 10,
+   "nodeTime": 1700000011000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-bob-11",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "bob",
+   "password": "b",
+   "reconnecting": false,
+   "hasSave": false,
+   "replyTo": "r12"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_login",
+   "nodeId": 10,
+   "nodeTime": 1700000012000,
+   "profile": "main",
+   "nodeMembers": true,
+   "socket": "sock-alice-12",
+   "remoteAddress": "10.0.0.9",
+   "uid": 7,
+   "username": "alice",
+   "password": "secret",
+   "reconnecting": false,
+   "hasSave": false,
+   "replyTo": "r13"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "player_logout",
+   "nodeId": 10,
+   "nodeTime": 1700000013000,
+   "profile": "main",
+   "username": "carol",
+   "save": "AAAA",
+   "replyTo": "r14"
+  }
+ },
+ {
+  "conn": "w10",
+  "msg": {
+   "type": "world_startup",
+   "nodeId": 10,
+   "nodeTime": 1700000014000,
+   "profile": "main"
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 0,
+   "world": 10,
+   "profile": "main"
+  }
+ },
+ {
+  "conn": "f11",
+  "msg": {
+   "type": 0,
+   "world": 11,
+   "profile": "main"
+  }
+ },
+ {
+  "conn": "fbad",
+  "msg": {
+   "type": 0,
+   "world": 12,
+   "profile": "other"
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 5,
+   "world": 10,
+   "username37": "2494434",
+   "privateChat": 0,
+   "staffLvl": 0
+  }
+ },
+ {
+  "conn": "f11",
+  "msg": {
+   "type": 5,
+   "world": 11,
+   "username37": "3295",
+   "privateChat": 0,
+   "staffLvl": 0
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 1,
+   "world": 10,
+   "username37": "2494434",
+   "targetUsername37": "3295"
+  }
+ },
+ {
+  "conn": "f11",
+  "msg": {
+   "type": 1,
+   "world": 11,
+   "username37": "3295",
+   "targetUsername37": "2494434"
+  }
+ },
+ {
+  "conn": "f11",
+  "msg": {
+   "type": 1,
+   "world": 11,
+   "username37": "3295",
+   "targetUsername37": "5698345"
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 8,
+   "world": 10,
+   "profile": "main",
+   "nodeTime": 1700000100000,
+   "username37": "2494434",
+   "targetUsername37": "3295",
+   "staffLvl": 0,
+   "pmId": 1,
+   "chat": "hi bob",
+   "coord": 12345
+  }
+ },
+ {
+  "conn": "f11",
+  "msg": {
+   "type": 7,
+   "world": 11,
+   "username37": "3295",
+   "privateChat": 2
+  }
+ },
+ {
+  "conn": "f11",
+  "msg": {
+   "type": 7,
+   "world": 11,
+   "username37": "3295",
+   "privateChat": 7
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 9,
+   "nodeId": 10,
+   "profile": "main",
+   "nodeTime": 1700000200000,
+   "session_uuid": "sess-1",
+   "coord": 54321,
+   "chat": "hello all"
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 3,
+   "world": 10,
+   "username37": "2494434",
+   "targetUsername37": "3295"
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 3,
+   "world": 10,
+   "username37": "2494434",
+   "targetUsername37": "204800"
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 4,
+   "world": 10,
+   "username37": "2494434",
+   "targetUsername37": "3295"
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 2,
+   "world": 10,
+   "username37": "2494434",
+   "targetUsername37": "3295"
+  }
+ },
+ {
+  "conn": "f11",
+  "msg": {
+   "type": 6,
+   "world": 11,
+   "username37": "3295"
+  }
+ },
+ {
+  "conn": "f10",
+  "msg": {
+   "type": 5,
+   "world": 10,
+   "username37": "2494434",
+   "privateChat": 1,
+   "staffLvl": 2
+  }
+ },
+ {
+  "conn": "f11",
+  "msg": {
+   "type": 5,
+   "world": 11,
+   "username37": "5698345",
+   "privateChat": 0,
+   "staffLvl": 0
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 10,
+   "nodeId": 10,
+   "username": "alice",
+   "muted_until": "2027-01-01 00:00:00"
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 11,
+   "nodeId": 11,
+   "username": "bob"
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 12,
+   "nodeId": 10,
+   "duration": 50
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 13,
+   "nodeId": 11,
+   "broadcast": "hello world"
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 14,
+   "nodeId": 10,
+   "username": "alice",
+   "state": true
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 15,
+   "nodeId": 11
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 16,
+   "nodeId": 10
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 17,
+   "nodeId": 10
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 18,
+   "nodeId": 10,
+   "username": "alice",
+   "scriptName": "welcome"
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 13,
+   "nodeId": 99,
+   "broadcast": "nobody"
+  }
+ },
+ {
+  "conn": "relay",
+  "msg": {
+   "type": 77
+  }
+ },
+ {
+  "conn": "log",
+  "msg": {
+   "type": "session_log",
+   "logs": [
+    {
+     "session_uuid": "sess-1",
+     "timestamp": 1700000000000,
+     "coord": 1,
+     "event": "login",
+     "event_type": 2
+    },
+    {
+     "session_uuid": "sess-1",
+     "timestamp": 1700000005000,
+     "coord": 2,
+     "event": "walk",
+     "event_type": 3
+    }
+   ]
+  }
+ },
+ {
+  "conn": "log",
+  "msg": {
+   "type": "wealth_event",
+   "events": [
+    {
+     "session_uuid": "sess-1",
+     "timestamp": 1700000010000,
+     "coord": 3,
+     "event_type": 1,
+     "account_items": [
+      {
+       "id": 995,
+       "count": 10
+      }
+     ],
+     "account_value": 10
+    },
+    {
+     "session_uuid": "sess-1",
+     "timestamp": 1700000011000,
+     "coord": 4,
+     "event_type": 2,
+     "account_items": [],
+     "account_value": 0,
+     "recipient_session": "sess-2",
+     "recipient_items": [
+      {
+       "id": 1,
+       "count": 1
+      }
+     ],
+     "recipient_value": 5
+    }
+   ]
+  }
+ },
+ {
+  "conn": "log",
+  "msg": {
+   "type": "report",
+   "session_uuid": "sess-1",
+   "timestamp": 1700000020000,
+   "coord": 5,
+   "offender": "bob",
+   "reason": 3
+  }
+ },
+ {
+  "conn": "log",
+  "msg": {
+   "type": "input_track",
+   "session_uuid": "sess-1",
+   "timestamp": 1700000030000,
+   "buf": "AAECAwQFBgcICQoLDA0ODw=="
+  }
+ },
+ {
+  "conn": "log",
+  "msg": {
+   "type": "mystery"
+  }
+ }
+]

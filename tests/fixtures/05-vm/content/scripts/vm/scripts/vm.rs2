@@ -1,0 +1,88 @@
+[proc,vm_arith](int $a, int $b)(int, int, int, int, int, int, int, int, int, int, int, int, int, int)
+return(add($a, $b), sub($a, $b), multiply($a, $b), divide($a, $b), modulo($a, $b), pow($a, $b), invpow($a, $b), and($a, $b), or($a, $b), min($a, $b), max($a, $b), scale($a, $b, 7), addpercent($a, $b), interpolate($a, $b, 1, 5, 3));
+
+[proc,vm_bits](int $v, int $bit, int $start, int $end)(int, int, int, int, int, int, int, int, int, int)
+return(setbit($v, $bit), clearbit($v, $bit), testbit($v, $bit), togglebit($v, $bit), setbit_range($v, $start, $end), clearbit_range($v, $start, $end), getbit_range($v, $start, $end), setbit_range_toint($v, $bit, $start, $end), bitcount($v), abs($v));
+
+[proc,vm_trig](int $x, int $y)(int, int, int)
+return(sin_deg($x), cos_deg($x), atan2_deg($x, $y));
+
+[proc,vm_random](int $n)(int, int, int)
+return(random($n), randominc($n), random($n));
+
+[proc,vm_strings](string $a, string $b, int $n)(string, string, string, string, string, int, int, string, int, int, string)
+return(append($a, $b), append_num($a, $n), append_signnum($a, $n), lowercase($a), tostring($n), compare($a, $b), string_length($a), substring($a, $n, add($n, 3)), string_indexof_char($a, 'l'), string_indexof_string($b, $a), append_char($a, 'z'));
+
+[proc,vm_enum](int $key)(string, int, int)
+return(enum(int, string, numbers_enum_str, $key), enum(int, int, numbers_enum_int, $key), enum_getoutputcount(numbers_enum_str));
+
+[proc,vm_struct]()(coord, int, string)
+return(struct_param(numbers_struct, numbers_coord), struct_param(numbers_struct, numbers_big), struct_param(numbers_struct, numbers_str));
+
+[proc,vm_db_find](int $k)(int, dbrow, dbrow, dbrow)
+def_int $count = db_find_with_count(numbers_table:pair:0, $k);
+return($count, db_findnext, db_findnext, db_findnext);
+
+[proc,vm_db_key](string $s)(int, dbrow, int, dbrow)
+def_int $count = db_find_with_count(numbers_table:key:0, $s);
+def_dbrow $row = db_findnext;
+return($count, $row, db_find_refine_with_count(numbers_table:key:1, 7), db_findbyindex(0));
+
+[proc,vm_db_list]()(int, dbrow, dbrow, dbrow)
+def_int $count = db_listall_with_count(numbers_table);
+return($count, db_findnext, db_findnext, db_findnext);
+
+[proc,vm_db_field](dbrow $row, int $i)(string, int, int, int, int, dbtable)
+def_string $label;
+def_int $num;
+$label, $num = db_getfield($row, numbers_table:label, $i);
+def_int $a;
+def_int $b;
+$a, $b = db_getfield($row, numbers_table:pair, $i);
+return($label, $num, db_getfieldcount($row, numbers_table:pair), $a, $b, db_getrowtable($row));
+
+[proc,vm_split](string $text, int $width, int $lines)(int, int, string, string, seq)
+split_init($text, $width, $lines, p12_full);
+return(split_pagecount, split_linecount(0), split_get(0, 0), split_get(0, 1), split_getanim(0));
+
+[proc,vm_oc](obj $o)(string, string, string, boolean, int, int, int, int, int, boolean, obj, obj, boolean)
+return(oc_name($o), oc_desc($o), oc_debugname($o), oc_members($o), oc_weight($o), oc_wearpos($o), oc_wearpos2($o), oc_wearpos3($o), oc_cost($o), oc_tradeable($o), oc_cert($o), oc_uncert($o), oc_stackable($o));
+
+[proc,vm_nc](npc $n)(string, string, string, category, int, string)
+return(nc_name($n), nc_desc($n), nc_debugname($n), nc_category($n), nc_size($n), nc_op($n, 1));
+
+[proc,vm_lc](loc $l)(string, string, string, category, int, int)
+return(lc_name($l), lc_desc($l), lc_debugname($l), lc_category($l), lc_width($l), lc_length($l));
+
+[proc,vm_flow](int $n)(int)
+def_int $acc = 0;
+def_int $i = 0;
+while ($i < $n) {
+    $acc = add($acc, ~vm_sq($i));
+    $i = add($i, 1);
+}
+switch_int ($n) {
+    case 1 : $acc = add($acc, 100);
+    case 2, 3 : $acc = add($acc, 200);
+    case default : $acc = add($acc, 5);
+}
+return($acc);
+
+[proc,vm_sq](int $x)(int)
+return(multiply($x, $x));
+
+[proc,vm_recurse](int $n)(int)
+return(~vm_recurse(add($n, 1)));
+
+[proc,vm_spin]()(int)
+def_int $i = 0;
+while (1 = 1) {
+    $i = add($i, 1);
+}
+return($i);
+
+[proc,vm_error](string $s)
+error($s);
+
+[proc,vm_substr](string $s, int $a, int $b)(string, int, int)
+return(substring($s, $a, $b), string_indexof_string($s, substring($s, $b, $a)), compare(substring($s, $a, $b), $s));

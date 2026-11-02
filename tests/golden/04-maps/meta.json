@@ -1,0 +1,5 @@
+{
+ "verify": false,
+ "walkOrder": "bytewise",
+ "scriptRoot": "../content/scripts"
+}

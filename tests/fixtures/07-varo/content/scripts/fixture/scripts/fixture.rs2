@@ -1,0 +1,2 @@
+[opnpc1,fixture_npc]
+mes("hello <tostring(^fixture_const)>");

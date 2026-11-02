@@ -1,0 +1,117 @@
+[proc,varo_default_reads]()(int, player_uid)
+if (inv_slotobj(inv, 0) = true) {
+    return(%test_charges, %test_owner);
+}
+return(-2, uid);
+
+[proc,varo_write_read]()(int, int)
+def_int $a = -2;
+def_int $b = -2;
+if (inv_slotobj(inv, 0) = true) {
+    %test_charges = 5;
+    $a = %test_charges;
+}
+if (inv_slotobj(inv, 1) = true) {
+    $b = %test_charges;
+}
+return($a, $b);
+
+[proc,varo_slotobj_empty]()(boolean)
+return(inv_slotobj(inv, 3));
+
+[proc,varo_pointer_follows_slot]()(int)
+if (inv_slotobj(inv, 0) = true) {
+    inv_movetoslot(inv, inv, 0, 5);
+    return(%test_charges);
+}
+return(-2);
+
+[proc,varo_dot_form]()(int)
+if (.inv_slotobj(inv, 0) = true) {
+    return(.%test_charges);
+}
+return(-2);
+
+[opheld1,test_ring]
+%fixture_varp = %test_charges;
+
+[proc,varo_charge](inv $inv, int $slot)
+if (inv_slotobj($inv, $slot) = true) {
+    %test_charges = 7;
+}
+
+[proc,varo_read](inv $inv, int $slot)(int)
+if (inv_slotobj($inv, $slot) = true) {
+    return(%test_charges);
+}
+return(-2);
+
+[proc,varo_movetoslot_swap]()(int, int)
+~varo_charge(inv, 0);
+inv_movetoslot(inv, inv, 0, 5);
+return(~varo_read(inv, 5), ~varo_read(inv, 0));
+
+[proc,varo_movefromslot_to_worn]()(int)
+~varo_charge(inv, 0);
+inv_movefromslot(inv, worn, 0);
+return(~varo_read(worn, 0));
+
+[proc,varo_bank_deposit_no_merge]()(int, int, int, int)
+~varo_charge(inv, 0);
+inv_movefromslot(inv, player_bank, 0);
+inv_movefromslot(inv, player_bank, 1);
+inv_add(player_bank, test_coins, 3);
+return(~varo_read(player_bank, 0), ~varo_read(player_bank, 1), inv_getnum(player_bank, 0), inv_getnum(player_bank, 1));
+
+[proc,varo_both_moveinv]()(int)
+~varo_charge(inv, 1);
+both_moveinv(inv, worn);
+if (.inv_slotobj(worn, 1) = true) {
+    return(.%test_charges);
+}
+return(-2);
+
+[proc,varo_moveitem_moves_instance]()(int, int, int)
+~varo_charge(inv, 1);
+inv_moveitem(inv, player_bank, test_ring, 2);
+return(~varo_read(player_bank, 0), ~varo_read(player_bank, 1), inv_total(player_bank, test_ring));
+
+[proc,varo_moveitem_partial_stack_copies]()(int, int, int, int)
+~varo_charge(inv, 0);
+inv_moveitem(inv, worn, test_coins, 4);
+return(~varo_read(inv, 0), inv_getnum(inv, 0), ~varo_read(worn, 0), inv_getnum(worn, 0));
+
+[proc,varo_moveitem_cert_drops]()(int)
+~varo_charge(inv, 0);
+inv_moveitem_cert(inv, player_bank, test_ring, 1);
+return(~varo_read(player_bank, 0));
+
+[proc,varo_changeslot_keeps]()(int)
+~varo_charge(inv, 0);
+inv_changeslot(inv, test_ring, test_coins, 1);
+return(~varo_read(inv, 0));
+
+[proc,varo_drop_discards]()(int)
+~varo_charge(inv, 0);
+inv_dropslot(inv, coord, 0, 100);
+inv_add(inv, test_ring, 1);
+return(~varo_read(inv, 0));
+
+[proc,varo_stock_zero_clears_vars]()(int)
+~varo_charge(varo_stock, 0);
+inv_del(varo_stock, test_coins, 3);
+inv_add(varo_stock, test_coins, 3);
+return(~varo_read(varo_stock, 0));
+
+[proc,varo_bank_uncert_roundtrip]()(int)
+~varo_charge(inv, 0);
+inv_moveitem_uncert(inv, player_bank, test_ring, 1);
+inv_moveitem_uncert(player_bank, inv, test_ring, 1);
+return(~varo_read(inv, 0));
+
+[proc,varo_shared_inv_drops_vars]()(int, int, int)
+~varo_charge(inv, 0);
+~varo_charge(inv, 1);
+inv_movefromslot(inv, varo_shared, 0);
+inv_moveitem(inv, varo_shared, test_ring, 1);
+return(~varo_read(varo_shared, 0), inv_getnum(varo_shared, 0), inv_total(varo_shared, test_ring));

@@ -1,0 +1,5 @@
+[numbers_spot]
+model=kalphite_glow
+recol1s=0
+recol1d=32767
+recol2s=0x10

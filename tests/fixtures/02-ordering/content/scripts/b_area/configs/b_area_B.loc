@@ -1,0 +1,7 @@
+[b_area_loc_z]
+model=outdoorfurniture_fountain
+category=cat_b_area
+
+[b_area_loc_a]
+model=outdoorfurniture_bench
+category=cat_shared

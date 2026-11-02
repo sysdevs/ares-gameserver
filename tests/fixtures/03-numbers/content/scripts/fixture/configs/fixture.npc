@@ -1,0 +1,8 @@
+[fixture_npc]
+name=Fixture
+desc=A fixture npc.
+walkanim=fixture_walk,fixture_walk,fixture_walk,fixture_walk
+readyanim=fixture_ready
+op1=Talk-to
+model1=woman_head_mediumhair
+head1=chat_female_head_mediumhair

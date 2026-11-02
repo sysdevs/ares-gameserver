@@ -1,0 +1,17 @@
+[inv]
+scope=perm
+size=28
+runweight=yes
+
+[worn]
+scope=perm
+size=14
+
+[player_bank]
+scope=perm
+size=200
+stackall=yes
+
+[player_temp]
+scope=temp
+size=8

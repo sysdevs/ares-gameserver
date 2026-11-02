@@ -1,0 +1,6 @@
+[fixture_ready]
+frame1=anim_0
+
+[fixture_walk]
+frame1=anim_0
+frame2=anim_1

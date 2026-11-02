@@ -1,0 +1,4 @@
+=Fixture Town,3215,3218,1
+=North,3205,3290,0
+not a label
+=Short,3200,0,0

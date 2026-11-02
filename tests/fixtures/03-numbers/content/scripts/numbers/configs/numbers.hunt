@@ -1,0 +1,6 @@
+[numbers_hunt]
+type=player
+find_newmode=opobj2
+rate=0x2
+extracheck_var=%fixture_varp,>3
+extracheck_var=%numbers_varp,&8

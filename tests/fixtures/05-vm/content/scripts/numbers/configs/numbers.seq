@@ -1,0 +1,7 @@
+[numbers_seq]
+frame1=anim_0
+frame3=anim_1
+iframe2=anim_1
+delay3=5
+walkmerge=label_1,label_0,2
+replaceheldleft=hide

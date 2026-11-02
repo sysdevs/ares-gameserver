@@ -1,0 +1,9 @@
+[a_area_npc]
+name=N
+model1=woman_head_mediumhair
+category=cat_npc_a_area
+
+[a_area_npc2]
+name=M
+model1=man_head_bald
+category=cat_shared

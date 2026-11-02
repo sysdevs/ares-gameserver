@@ -1,0 +1,7 @@
+[fixture_block]
+sprite=hitmarks,0
+
+[fixture_hit]
+sprite=hitmarks,1
+recol1s=0xff0000
+recol1d=0x00ff00

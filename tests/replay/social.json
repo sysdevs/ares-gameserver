@@ -1,0 +1,33 @@
+{
+  "golden": "06-npcs",
+  "src": "tests/fixtures/06-npcs/content",
+  "ticks": 80,
+  "seed": 77,
+  "accounts": [
+    { "username": "alice", "x": 3222, "z": 3222, "level": 0 },
+    { "username": "bob", "x": 3224, "z": 3222, "level": 0 }
+  ],
+  "clients": [
+    { "remote": "10.0.0.5", "username": "alice", "password": "a", "connect": 0, "seeds": [1, 2, 3, 4], "uid": 1 },
+    { "remote": "10.0.0.2", "username": "bob", "password": "b", "connect": 1, "seeds": [5, 6, 7, 8], "uid": 2 }
+  ],
+  "friendIn": [
+    { "tick": 2, "opcode": 0, "data": { "username37": "2494434", "friends": [[10, "3295"], [0, "5698345"]] } },
+    { "tick": 3, "opcode": 1, "data": { "username37": "3295", "ignored": ["204800", "5698345"] } },
+    { "tick": 5, "opcode": 2, "data": { "username37": "3295", "targetUsername37": "2494434", "staffLvl": 2, "pmId": 77, "chat": "hey there" } },
+    { "tick": 6, "opcode": 2, "data": { "username37": "3295", "targetUsername37": "204800", "staffLvl": 0, "pmId": 78, "chat": "nobody home" } },
+    { "tick": 7, "opcode": 3, "data": { "username": "bob", "muted_until": 1800000000000 } },
+    { "tick": 9, "opcode": 6, "data": { "message": "Hello world\nSecond line" } },
+    { "tick": 10, "opcode": 11, "data": { "username": "alice", "scriptName": "fixture_weak" } },
+    { "tick": 11, "opcode": 9, "data": {} },
+    { "tick": 11, "opcode": 10, "data": {} },
+    { "tick": 12, "opcode": 7, "data": { "username": "alice", "state": true } },
+    { "tick": 13, "opcode": 99, "data": {} },
+    { "tick": 15, "opcode": 4, "data": { "username": "bob" } },
+    { "tick": 20, "opcode": 5, "data": { "duration": 12 } }
+  ],
+  "packets": [
+    { "tick": 8, "client": 1, "opcode": 253, "chat": "am i muted", "colour": 0, "effect": 0 },
+    { "tick": 8, "client": 0, "opcode": 253, "chat": "i am not", "colour": 0, "effect": 0 }
+  ]
+}

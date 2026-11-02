@@ -1,0 +1,7 @@
+[fixture_message]
+type=string
+default=Hello
+
+[fixture_level]
+type=int
+default=1

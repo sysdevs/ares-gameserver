@@ -1,0 +1,15 @@
+[numbers_obj_lb]
+model=inv_boots
+weight=3lb
+
+[numbers_obj_neg]
+model=inv_boots
+weight=-3lb
+cost=4294967297
+
+[numbers_obj_oz]
+name=Ounce
+model=inv_boots
+weight=3oz
+count1=fixture_boots,2
+count3=fixture_boots,5

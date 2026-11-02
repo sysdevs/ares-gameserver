@@ -1,0 +1,5 @@
+[numbers_inv]
+scope=temp
+size=5
+stock1=fixture_boots,2
+stock3=fixture_boots,7,300

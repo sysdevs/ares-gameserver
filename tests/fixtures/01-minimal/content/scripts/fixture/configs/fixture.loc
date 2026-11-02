@@ -1,0 +1,14 @@
+[fixture_fountain]
+name=Fountain
+desc=A fixture fountain.
+model=outdoorfurniture_fountain
+width=2
+length=2
+op1=Drink
+
+[fixture_door]
+name=Door
+desc=A fixture door.
+model=outdoorfurniture_bench
+active=yes
+op1=Open

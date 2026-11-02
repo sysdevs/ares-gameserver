@@ -1,0 +1,4 @@
+[fixture_enum]
+inputtype=int
+outputtype=namedobj
+val=1,fixture_boots

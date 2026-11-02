@@ -1,0 +1,32 @@
+/target
+
+# server root state (cargo run): generated, or local secrets
+/data/pack/
+/data/players/
+/data/config/
+/data/symbols.json
+/data/unpack/
+/db.sqlite*
+
+# a Client-TS checkout for `ares-pack rekey` placed inside the repo, and JS tooling installs
+/Client-TS/
+node_modules/
+
+# local environment and logs
+.env
+.env.*
+*.log
+
+# rustfmt backups
+**/*.rs.bk
+
+graphify-out
+
+# editors and OS
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+[Dd]esktop.ini

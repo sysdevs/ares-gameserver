@@ -1,0 +1,4 @@
+[a_area_enum]
+inputtype=int
+outputtype=int
+val=1,2
