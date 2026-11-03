@@ -13,7 +13,7 @@ use crate::cache::config::{
     var::{VarBitType, VarNpcType, VarObjType, VarPlayerType, VarSharedType},
 };
 use crate::pack::parse::{int_at, load_dir_ext_full, read_text};
-use crate::script::tables::{NPC_MODES, NPC_STATS, PLAYER_STATS};
+use ares_shared::tables::{NPC_MODES, NPC_STATS, PLAYER_STATS};
 use ares_shared::opcode::{OPCODES, POINTERS};
 use ares_shared::pointer::PointerType;
 use crate::util::config::Build;

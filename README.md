@@ -23,7 +23,7 @@ the current directory). `ares-pack` always works on the current directory. `ares
 ```text
 ares-pack build                 clean build of data/pack from build.srcDir
 ares-pack clean                 remove data/pack and the regenerable .pack files
-ares-pack symbols               data/symbols.json for the VS Code language server (dev mode writes it after every build)
+ares-pack symbols               data/symbols.json, runescript-lsp's reference tables (dev mode writes it after every build)
 ares-pack checksum              CRCs of the jags in data/unpack
 ares-pack keygen                new data/config/{private,public}.pem (does NOT rebuild the client)
 ares-pack rekey <Client-TS dir> new key compiled into a fresh web client build, then installed

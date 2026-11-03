@@ -5,7 +5,6 @@ pub mod ops;
 pub mod provider;
 pub mod runner;
 pub mod state;
-pub mod tables;
 
 /// The active-entity pointers a script may hold (one bit each in `ScriptState`).
 pub use ares_shared::pointer::PointerType;

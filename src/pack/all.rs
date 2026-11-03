@@ -46,7 +46,8 @@ fn rooted(root: &Path, b: &Build) -> Build {
 
 /// Writes [`SYMBOLS`]: the symbol tables the script compiler gets, built from
 /// the configs and interfaces in `data/pack` (so it needs a build that got
-/// that far). For editor tooling (`runescript.symbolsPath`). Written to a temp
+/// that far). runescript-lsp builds the same tables from config text and checks
+/// itself against this file (`symbols_match_golden`). Written to a temp
 /// file and renamed so a reader never sees half a file.
 pub fn write_symbols(root: &Path, b: &Build) -> Result<PathBuf, String> {
     let out = root.join("data/pack");

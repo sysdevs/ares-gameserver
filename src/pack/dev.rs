@@ -1,7 +1,7 @@
 //! Watches the content sources and rebuilds `data/pack` after changes
 //! settle, on its own thread. The World reloads
 //! on `DevMsg::Reload`. Once at startup and after every build it also writes
-//! `data/symbols.json` for editor tooling (the RuneScript language server).
+//! `data/symbols.json` (the reference for runescript-lsp's `symbols_match_golden`).
 
 use crate::util::config::Build;
 use notify::{RecursiveMode, Watcher};
