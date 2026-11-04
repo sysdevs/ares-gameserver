@@ -408,7 +408,11 @@
    "10003": "timespent",
    "13": "push_varo",
    "14": "pop_varo",
-   "4333": "inv_slotobj"
+   "4333": "inv_slotobj",
+   "42": "get_varc_int",
+   "43": "set_varc_int",
+   "49": "get_varc_string",
+   "50": "set_varc_string"
   },
   "vartype": {},
   "protect": {},
