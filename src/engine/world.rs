@@ -21,24 +21,24 @@ pub use player::{InvOwner, LogoutRequest};
 pub use npc::{NpcEvent, ObjDelayed, WorldQueued, mulberry32};
 pub use zones::{EntityKey, ZoneEvent};
 
+use super::configs::Configs;
+use super::entity::Player;
 use super::entity::{Loc, Npc, NpcList, Obj};
 use super::game_map::GameMap;
-use super::entity::Player;
 use super::inventory::Inventory;
 use super::linklist::{HashTable, Links, List, NodeId};
+use super::zone::{ZoneArenas, ZoneMap};
+use crate::cache::config::script_var_type as svt;
 use crate::cache::wordenc::WordEnc;
 use crate::io::packet::{Packet, RsaKey};
 use crate::link::login::LoginRequest;
+use crate::routefinder::CollisionEngine;
 use crate::routefinder::PathFinder;
 use crate::rsbuf::Rsbuf;
-use super::zone::{ZoneArenas, ZoneMap};
-use indexmap::{IndexMap, IndexSet};
-use super::configs::Configs;
-use crate::cache::config::script_var_type as svt;
 use crate::script::provider::ScriptProvider;
 use crate::script::state::ScriptState;
 use crate::util::java_random::JavaRandom;
-use crate::routefinder::CollisionEngine;
+use indexmap::{IndexMap, IndexSet};
 use std::collections::HashMap;
 
 /// `Environment.runtime.maxNpcs`.
@@ -191,7 +191,10 @@ impl World {
         let mut w = World {
             configs,
             collision: CollisionEngine::default(),
-            map: GameMap { members, ..Default::default() },
+            map: GameMap {
+                members,
+                ..Default::default()
+            },
             zones: ZoneMap::default(),
             arenas: ZoneArenas::default(),
             npcs: NpcList::new(MAX_NPCS),
@@ -219,7 +222,9 @@ impl World {
             npc_event_queue,
             queue_links,
             queue,
-            math_state: std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).map_or(0, |d| d.subsec_nanos() as i32),
+            math_state: std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .map_or(0, |d| d.subsec_nanos() as i32),
             production: false,
             midi_lengths: Vec::new(),
             players: (0..2048).map(|_| None).collect(),
@@ -261,8 +266,13 @@ impl World {
         };
         w.run_varp = w.configs.varps.get_id("run").max(0);
         for id in 0..w.configs.invs.count() {
-            if w.configs.invs.get(id).is_some_and(|t| t.scope == crate::cache::config::inv::SCOPE_SHARED) {
-                w.invs.push(Inventory::from_type(&w.configs.invs, id as i32));
+            if w.configs
+                .invs
+                .get(id)
+                .is_some_and(|t| t.scope == crate::cache::config::inv::SCOPE_SHARED)
+            {
+                w.invs
+                    .push(Inventory::from_type(&w.configs.invs, id as i32));
             }
         }
         w.init_vars();
@@ -273,11 +283,13 @@ impl World {
     /// other non-string type at -1 (strings stay unset).
     fn init_vars(&mut self) {
         let n = self.configs.varss.count();
-        self.vars = (0..n).map(|i| match self.configs.varss.get(i).map(|t| t.kind) {
-            Some(svt::STRING) => 0,
-            Some(svt::INT) => 0,
-            _ => -1,
-        }).collect();
+        self.vars = (0..n)
+            .map(|i| match self.configs.varss.get(i).map(|t| t.kind) {
+                Some(svt::STRING) => 0,
+                Some(svt::INT) => 0,
+                _ => -1,
+            })
+            .collect();
         self.vars_string = vec![None; n];
     }
 
@@ -327,7 +339,10 @@ impl World {
             for slot in self.player_loop() {
                 let p = self.player(slot).expect("player");
                 let save = p.save(&self.configs.varps, &self.configs.invs, &self.configs.varos);
-                self.login_out.push(LoginRequest::PlayerAutosave { username: p.username.clone(), save });
+                self.login_out.push(LoginRequest::PlayerAutosave {
+                    username: p.username.clone(),
+                    save,
+                });
             }
         }
         self.current_tick += 1;
@@ -357,14 +372,22 @@ impl World {
     }
 
     /// The script error report of `ScriptRunner.execute`'s catch. The
-    /// player-facing lines and the production logout/NPC removal arrive with
-    /// the entities; for now it is logged.
+    /// production logout/NPC removal arrive with the entities; for now it is
+    /// logged, and a protected-access failure tells the active player.
     pub fn script_error(&mut self, s: &ScriptState, message: String) {
-        tracing::error!("script error: {message} ({}:{:?})", s.script.file_name(), s.script.line_number(s.pc));
+        tracing::error!(
+            "script error: {message} ({}:{:?})",
+            s.script.file_name(),
+            s.script.line_number(s.pc)
+        );
+        if message.contains("requires protected access")
+            && let Ok(slot) = s.active_player()
+        {
+            self.message_game(slot, "An error has occurred - protected access failure");
+        }
         self.script_errors.push(message.clone());
         self.last_script_error = Some(message);
     }
-
 
     /// `Zone.addStaticLoc` on the loc's zone.
     pub fn add_static_loc(&mut self, mut loc: Loc) -> NodeId {
